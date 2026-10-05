@@ -1,0 +1,43 @@
+:root {
+    --sl-color-accent: #1f1b99;
+    --sl-color-accent-high: #1f1b99;
+}
+
+.site-title {
+    color: #eeeeee;
+}
+
+.sl-link-button {
+    color: #eeeeee;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.astro-rmhv4bp6 {
+    color: #eeeeee;
+}
+
+.astro-n2mnl6yq {
+    color: #eeeeee;
+}
+
+
+:root[data-theme='light'] .site-title {
+    color: #1f1b99;
+}
+
+:root[data-theme='light'] .sl-link-button.primary {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+:root[data-theme='light'] .sl-link-button:not(.primary) {
+    color: #1f1b99;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+:root[data-theme='light'] .astro-n2mnl6yq {
+    color: #1f1b99;
+}

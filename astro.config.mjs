@@ -8,6 +8,9 @@ export default defineConfig({
 		starlight({
 			title: 'Transcend Binary',
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/transcendbinary' }],
+			customCss: [
+				'./src/styles/style.css',
+			]
 		}),
 	],
 });
