@@ -13,14 +13,17 @@
     font-weight: bold;
 }
 
-.astro-rmhv4bp6 {
+a {
     color: #eeeeee;
 }
 
-.astro-n2mnl6yq {
-    color: #eeeeee;
+:root[data-theme='light'] a[aria-current="page"] {
+    color: white;
 }
 
+:root[data-theme='light'] a {
+    color: #222222;
+}
 
 :root[data-theme='light'] .site-title {
     color: #1f1b99;
@@ -36,8 +39,4 @@
     color: #1f1b99;
     text-decoration: none;
     font-weight: bold;
-}
-
-:root[data-theme='light'] .astro-n2mnl6yq {
-    color: #1f1b99;
 }
