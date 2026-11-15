@@ -8,7 +8,7 @@ description: Our Update API
 
 ## Overview
 
-we have two types of update API: .TXT and .JSON. In both cases, Every app we have has its own file inside 'updates'. each file contains both the number of the latest version and a direct link to download from our CDN.
+our Updates API is used to provide update information for our apps. The API provides a simple interface to check for updates and download the latest version of an app. Our Update APIs have various formats that work in different ways for different apps. They are usually either TXT or JSON formatted. Each apps API usually has the latest version, and a link to the CDN where the latest version is stored.
 
 ## .TXT Updaters
 
@@ -19,9 +19,11 @@ we have two types of update API: .TXT and .JSON. In both cases, Every app we hav
 cdn.transcendbinary.co.uk/gamesApps/app/windows/TBDesktopApp_v1.1.1.exe
 ```
 
-The first line is the latest version release number (without the `v` prefix)
+The first line is the latest version release number (without the 'v' prefix)
 
 the second line is a direct link to download the app from our CDN. Notice the version number *in* the URL as opposed to using the `TBDesktopApp_Latest.exe` format; This is to combat caching and ensure the version download is, in fact, the latest version. 
+
+The main exception of of this is our IOS shortcut app which foregos the URL and simply contains the version number with a 'v' prefix.
 
 ## .JSON Updaters
 
