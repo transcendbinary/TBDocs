@@ -6,7 +6,7 @@ description: Our MOTD API
 Our MOTD API stores a list of MOTDs used in our apps and across services. 
 accessible at `https://api.transcendbinary.co.uk/motd.json`
 
-```json
+```json title="JSON"
 {
   "generic": [
     "Miles is Watching..."
@@ -28,7 +28,7 @@ The root object has two properties:
 
 Use a `SetMOTD()` function to check the system is online and then run `FetchMOTD()`
 
-```csharp
+```csharp title="C#"
 if (!IsOnline())
     {
         //handle the error
@@ -43,7 +43,7 @@ lblMOTD.Text = motd;
 
 Use a `FetchMOTD()` function to first download and parse the JSON file
 
-```csharp
+```csharp title="C#"
 using var client = new HttpClient();
 
 string json = await client.GetStringAsync(
@@ -53,7 +53,7 @@ string json = await client.GetStringAsync(
 JsonDocument doc = JsonDocument.Parse(json);
 ```
 Check if todays date is listed as a `Special` Key and set `motd`
-```csharp
+```csharp title="C#"
 string today = DateTime.Today.ToString("yyyy-MM-dd");
 
 if (doc.RootElement.GetProperty("special").TryGetProperty(today, out JsonElement special))
@@ -62,7 +62,7 @@ if (doc.RootElement.GetProperty("special").TryGetProperty(today, out JsonElement
     }                                
 ```
 then if not, use the `generic` array to select a MOTD based on the current day of the year and `return` to `SetMOTD()` set the MOTD text in the UI.
-```csharp
+```csharp title="C#"
 else
     {
         string[] generic = doc.RootElement

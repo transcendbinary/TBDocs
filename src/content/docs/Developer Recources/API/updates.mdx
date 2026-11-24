@@ -10,7 +10,7 @@ accessible at `https://api.transcendbinary.co.uk/updates`
 
 .TXT Updaters are used by ActualInstaller for our Windows apps. An Example of a TXT update file is:
 
-```plaintext
+```plaintext title="Text"
 1.1.1
 cdn.transcendbinary.co.uk/gamesApps/app/windows/TBDesktopApp_v1.1.1.exe
 ```
@@ -27,7 +27,7 @@ The main exception of of this is our IOS shortcut app which foregos the URL and 
 
 The JSON Format is largely the same as the TXT format except it uses JSON Keys to store information. Since every app has its own file, there is no need for a Class. An example is:
 
-```json
+```json title="JSON"
 {
   "latestVersion": "0.1.1",
   "url": "https://cdn.transcendbinary.co.uk/gamesApps/app/android/TBAndroidApp_v0.1.1.apk"
@@ -43,7 +43,7 @@ see an example of how this is used:
 
 The `checkForUpdate()` requests an update manifest from the API which sends back the JSON containing the latest version number and download URL.
 
-```kotlin
+```kotlin title="Kotlin"
 suspend fun checkForUpdate(context: Context) {
     withContext(Dispatchers.IO) {
         try {
@@ -73,7 +73,7 @@ suspend fun checkForUpdate(context: Context) {
 
 `isVersionNewer()` compares the currently installed version to the version listed in the update manifest. If a newer version is available, the application can notify the user and provide the download URL.
 
-```kotlin
+```kotlin title="Kotlin"
 private fun isVersionNewer(latest: String): Boolean {
     val currentParts = CURRENT_VERSION.split(".").map { it.toInt() }
     val latestParts = latest.split(".").map { it.toInt() }
@@ -92,7 +92,7 @@ private fun isVersionNewer(latest: String): Boolean {
 
 If the user chooses to update, `downloadUpdate()` is called and Android's `DownloadManager` downloads the APK to the device's Downloads folder. The user can then install the downloaded APK manually.
 
-```kotlin
+```kotlin title="Kotlin"
 private fun downloadUpdate(context: Context, url: String) {
     val request = DownloadManager.Request(Uri.parse(url))
         .setNotificationVisibility(
