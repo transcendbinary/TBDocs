@@ -1,0 +1,45 @@
+---
+title: Sonic Tracker
+description: Track your progress across sonic mainline games
+---
+Track your completed acts, challenges, boss fights and more across all the mainline and traditional platforming sonic games.
+Progress for each game is shown visually and you get a readout in either fraction or percentage.
+
+## Usage
+Search for a game or scroll down the list using the small gap on the right-hand side of the app to avoid act lists stealing focus.  
+once you have found your game, scroll through the act list and check off the acts you have completed. This fills the progress bar and marks game completion.
+overall completion (total for every supported game) is shown at the bottom.
+
+## Settings
+click the settings button in the top right corner to access the settings menu.  
+the following options are available:
+
+### Progress Display
+Choose whether per-game progress is shown as a percentage or a fraction (default: percentage)  
+overall progress always shows both.
+
+### Search Delay
+set a delay in ms between when you stop typing and when the apps begins loading results. This is to help with lag when searching. (default: 500ms / 0.5s)  
+if you notice pauses and flashes while typing, increase this value; if you find yourself waiting around after you finish typing, decrease this value.
+
+### Check for Updates
+Click this button to open the update tool. This shows your currently installed version. Clicking "check for updates" in this window will check the server for new versions. if one is found, youll be prompted to download it. This will download the latest version of the app. Ensure the app is closed before running the new installer, youll be prompted to remove the old version. Dont worry, your save file will persist between updates.  
+
+If any act list has changed; you will need to manually delete the old act list from your save file. see <a href="#act-list-changes">Act List Changes</a>
+
+### Reset Save Data
+This will, after conformation, delete your save file. this option is also available via the file menu in the main window as well as the option to open the save file for manual editing. see <a href="#save-file-modifications">Save File Modifications</a>
+
+## Save File Modifications
+
+the save file uses XML with DOTNETs User Settings API. each game is stored as a string containing a list of indexes. The apps settings are also stored here in various formats.
+
+### Act List Changes
+If an act list get changed with an update; you will need to manually remove that game from your save file to avoid sync issues.  
+- go to File > Open Save File
+- Locate the title of your game, For example, `SonicColorsCheckedItems`
+- locate the opening and closing settings tags for that game
+  - usually 3 lines from the game title
+- Highlight and delete all 3 lines ensuring <code>{"<setting"}</code> is at the start and <code>{"</setting>"}</code> is at the end of the highlighted section
+- save the file and relaunch the app.
+- we reccomend creating a backup of the save file if you are not familiar with editing XML
